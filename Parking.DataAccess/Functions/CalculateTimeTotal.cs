@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Parking.TesT
+namespace Parking.DataAccess
 {
 	public class CalculateTimeTotal
 	{

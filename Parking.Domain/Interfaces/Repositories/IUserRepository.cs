@@ -10,7 +10,7 @@ namespace Parking.Domain.Interfaces.Repositories
 		/// Add User (Register)
 		void AddUser(string userName,string password,string salt);
 		/// Update User
-		void UpdateActiveStatus(int userId,int ActiveStatus);
+		void UpdateActiveStatus(int userId,int activeStatus);
 		/// Get IsAmin By Id User
 		bool GetIsAmin(int userId);
 		/// Get User By Username and password

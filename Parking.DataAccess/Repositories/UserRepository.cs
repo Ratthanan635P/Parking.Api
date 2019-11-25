@@ -58,10 +58,10 @@ namespace Parking.DataAccess.Repositories
 			return user;
 		}
 
-		public void UpdateActiveStatus(int userId, int ActiveStatus)
+		public void UpdateActiveStatus(int userId, int activeStatus)
 		{
 		     var user = _context.Users.Where(u => u.Id == userId).FirstOrDefault();
-			 user.ActiveStatus = ActiveStatus;
+			 user.ActiveStatus = activeStatus;
 			_context.SaveChanges();
 		}
 	}
