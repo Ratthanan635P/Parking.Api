@@ -17,8 +17,8 @@ namespace Parking.Domain.Interfaces.Repositories
 		void CheckOut(ParkingCheckOutDto parkingCheckOut);
 		//ออกรายงาน ยอด ประวัน วัน*เช็คที่วันเวลาออก
 		ReportRecordParkingDto CheckbalanceByDate(DateTime dateTime);
-		//ออกรายงาน ยอด สัปดาห์, *เช็คที่วันเวลาออก
-		ReportRecordParkingDto CheckbalanceByWeek(int week);
+		////ออกรายงาน ยอด สัปดาห์, *เช็คที่วันเวลาออก
+		//ReportRecordParkingDto CheckbalanceByWeek(int week);
 		//ออกรายงาน ยอด เดือน,*เช็คที่วันเวลาออก
 		ReportRecordParkingDto CheckbalanceByMonth(int? year,int month);
 		//ออกรายงาน ยอด ปี, *เช็คที่วันเวลาออก
@@ -32,5 +32,6 @@ namespace Parking.Domain.Interfaces.Repositories
 		// topจังหวัด เช็คทะเบียนซ้ำออก
 		List<CarProvinceMaxDto> GetTopProvinceUse();
 
+		double CalculatePirceParking(int hour);
 	}
 }

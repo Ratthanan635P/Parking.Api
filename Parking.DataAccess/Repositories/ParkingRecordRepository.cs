@@ -16,6 +16,13 @@ namespace Parking.DataAccess.Repositories
 		{
 			_context = context;
 		}
+
+		public double CalculatePirceParking(int hour)
+		{
+			//throw new NotImplementedException();
+			return 0.00;
+		}
+
 		public ReportRecordParkingDto CheckbalanceByDate(DateTime dateTime)
 		{
 			var listParking = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value.Year == dateTime.Year && pr.Timeout.Value.Month == dateTime.Month && pr.Timeout.Value.Day == dateTime.Day)
@@ -120,51 +127,52 @@ namespace Parking.DataAccess.Repositories
 			return Data;
 		}
 
-		public ReportRecordParkingDto CheckbalanceByWeek(int week)
-		{
-			//var listParking = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value. >= timeIn && pr.Timeout <= timeOut)
-			//	.Join(_context.Provinces, p => p.ProvinceCode, r => r.ProvinceCode, (p, r) => new ParkingRecordDto()
-			//	{
-			//		CreatedBy = p.CreatedBy.Id,
-			//		LicensePlate = p.LicensePlate,
-			//		ProvinceCode = p.ProvinceCode,
-			//		ProvinceName = r.ProvinceName,
-			//		UpdateBy = p.UpdatedBy.Id,
-			//		Timein = p.Timein,
-			//		TimeOut = p.Timeout,
-			//		TotalPrice = (double)p.TotalPrice
-			//	}
-			//).OrderBy(p => p.ProvinceName).ToList();
-			//var Sum = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout >= timeIn && pr.Timeout <= timeOut)
-			//	.Sum(p => p.TotalPrice);
-			//ReportRecordParkingDto Data = new ReportRecordParkingDto()
-			//{
-			//	ListParkingRecords = listParking,
-			//	TotalPrice = (double)Sum
-			//};
-			//return Data;
-			var listParking = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value.Year == week)
-				.Join(_context.Provinces, p => p.ProvinceCode, r => r.ProvinceCode, (p, r) => new ParkingRecordDto()
-				{
-					CreatedBy = p.CreatedBy.Id,
-					LicensePlate = p.LicensePlate,
-					ProvinceCode = p.ProvinceCode,
-					ProvinceName = r.ProvinceName,
-					UpdateBy = p.UpdatedBy.Id,
-					Timein = p.Timein,
-					TimeOut = p.Timeout,
-					TotalPrice = (double)p.TotalPrice
-				}
-			).OrderBy(p => p.ProvinceName).ToList();
-			var Sum = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value.Year == week)
-				.Sum(p => p.TotalPrice);
-			ReportRecordParkingDto Data = new ReportRecordParkingDto()
-			{
-				ListParkingRecords = listParking,
-				TotalPrice = (double)Sum
-			};
-			return Data;
-		}
+		//public ReportRecordParkingDto CheckbalanceByWeek(int week)
+		//{
+		//	//var listParking = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value. >= timeIn && pr.Timeout <= timeOut)
+		//	//	.Join(_context.Provinces, p => p.ProvinceCode, r => r.ProvinceCode, (p, r) => new ParkingRecordDto()
+		//	//	{
+		//	//		CreatedBy = p.CreatedBy.Id,
+		//	//		LicensePlate = p.LicensePlate,
+		//	//		ProvinceCode = p.ProvinceCode,
+		//	//		ProvinceName = r.ProvinceName,
+		//	//		UpdateBy = p.UpdatedBy.Id,
+		//	//		Timein = p.Timein,
+		//	//		TimeOut = p.Timeout,
+		//	//		TotalPrice = (double)p.TotalPrice
+		//	//	}
+		//	//).OrderBy(p => p.ProvinceName).ToList();
+		//	//var Sum = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout >= timeIn && pr.Timeout <= timeOut)
+		//	//	.Sum(p => p.TotalPrice);
+		//	//ReportRecordParkingDto Data = new ReportRecordParkingDto()
+		//	//{
+		//	//	ListParkingRecords = listParking,
+		//	//	TotalPrice = (double)Sum
+		//	//};
+		//	//return Data;
+
+		//	var listParking = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value.Year == week)
+		//		.Join(_context.Provinces, p => p.ProvinceCode, r => r.ProvinceCode, (p, r) => new ParkingRecordDto()
+		//		{
+		//			CreatedBy = p.CreatedBy.Id,
+		//			LicensePlate = p.LicensePlate,
+		//			ProvinceCode = p.ProvinceCode,
+		//			ProvinceName = r.ProvinceName,
+		//			UpdateBy = p.UpdatedBy.Id,
+		//			Timein = p.Timein,
+		//			TimeOut = p.Timeout,
+		//			TotalPrice = (double)p.TotalPrice
+		//		}
+		//	).OrderBy(p => p.ProvinceName).ToList();
+		//	var Sum = _context.ParkingRecords.Where(pr => pr.Timein != null && pr.Timeout.Value.Year == week)
+		//		.Sum(p => p.TotalPrice);
+		//	ReportRecordParkingDto Data = new ReportRecordParkingDto()
+		//	{
+		//		ListParkingRecords = listParking,
+		//		TotalPrice = (double)Sum
+		//	};
+		//	return Data;
+		//}
 
 		public ReportRecordParkingDto CheckbalanceByYear(int year)
 		{
